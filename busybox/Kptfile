@@ -1,0 +1,28 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: busybox
+upstream:
+  type: git
+  git:
+    repo: https://github.com/Damisco/infra-kpt-only
+    directory: /busybox
+    ref: v1.0.0
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/Damisco/infra-kpt-only
+    directory: /busybox
+    ref: v1.0.0
+    commit: a0c5b65fd31e0cf84b989cd021b50233c5fe9fb2
+info:
+  description: kpt only project
+pipeline:
+  mutators:
+    - image: apply-setters:v0.2
+      configPath: apply-setters-fn-config.yaml
+inventory:
+  namespace: default
+  name: inventory-28736873
+  inventoryID: d1289db9d6c9682b8353c950357bd219546f2a51-1632680987983764000

@@ -1,0 +1,8 @@
+# apply-setters-fn-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata: # kpt-merge: /apply-setters-fn-config
+  name: apply-setters-fn-config
+data:
+  tag: 1.33.0
+  image: busybox
